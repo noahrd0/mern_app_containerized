@@ -8,7 +8,7 @@ services:
       - mern-app-network
 
   frontend:
-    image: frontend
+    build: frontend/React/
     container_name: frontend-container
     ports:
       - "8080:80"
@@ -16,7 +16,7 @@ services:
       - mern-app-network
 
   backend:
-    image: backend
+    build: backend/
     container_name: backend-container
     ports:
       - "5050:5050"
