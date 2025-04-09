@@ -1,0 +1,30 @@
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo-container
+    ports:
+      - "27017:27017"
+    networks:
+      - mern-app-network
+
+  frontend:
+    image: frontend
+    container_name: frontend-container
+    ports:
+      - "8080:80"
+    networks:
+      - mern-app-network
+
+  backend:
+    image: backend
+    container_name: backend-container
+    ports:
+      - "5050:5050"
+    networks:
+      - mern-app-network
+    env_file:
+      - backend/.env
+
+networks:
+  mern-app-network:
+    driver: bridge
